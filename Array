@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function(nums) {
+    let newNums = nums.map((elem) => {
+        return elem * elem;
+    });
+    let res = [];
+    let left = 0;
+    let right = newNums.length - 1;
+    while(left <= right) {
+        if(newNums[left] > newNums[right]) {
+            res.unshift(newNums[left])
+            left++;
+        } else {
+            res.unshift(newNums[right])
+            right--;
+        }
+    }
+    return res;
+};
